@@ -22,7 +22,6 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 
-import uk.ac.manchester.owl.owlapi.tutorialowled2011.OWLTutorialSyntaxOntologyFormat;
 
 /**
  * Simple Rendering Example. Reads an ontology and then renders it.
@@ -35,13 +34,9 @@ public class Render {
 
     public void render(IRI doc) throws OWLOntologyCreationException, OWLOntologyStorageException {
 
-
         System.out.println("GUNNAR " + doc.toString());
-
         String outPutIRI = "file:/Users/rikardeide/Development/ontology-engineering/temp/pizza2functional.owl";
-
         render(doc.toString(), outPutIRI);
-
     }
 
     /**
@@ -70,8 +65,7 @@ public class Render {
         System.out.println("Ontology Loaded...");
         System.out.println("Document IRI: " + inputDocumentIRI);
         System.out.println("Logical IRI : " + ontology.getOntologyID());
-        System.out.println("Format      : "
-                + manager.getOntologyFormat(ontology));
+        System.out.println("Format      : " + manager.getOntologyFormat(ontology));
         /* Register the ontology storer with the manager */
 
         manager.getOntologyStorers().add(new FunctionalSyntaxStorerFactory());

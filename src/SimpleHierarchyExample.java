@@ -16,7 +16,6 @@ import java.io.File;
 import java.io.PrintStream;
 import javax.annotation.Nonnull;
 
-import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -72,8 +71,7 @@ public final class SimpleHierarchyExample {
          * Use a visitor to extract label annotations
          */
         LabelExtractor le = new LabelExtractor();
-        for (OWLAnnotation anno : annotations(ontology
-                .getAnnotationAssertionAxioms(clazz.getIRI()))) {
+        for (OWLAnnotation anno : annotations(ontology.getAnnotationAssertionAxioms(clazz.getIRI()))) {
             anno.accept(le);
         }
         /* Print out the label if there is one. If not, just use the class URI */
@@ -90,8 +88,8 @@ public final class SimpleHierarchyExample {
      * the given level. Makes no attempt to deal sensibly with multiple
      * inheritance.
      */
-    private void printHierarchy(@Nonnull OWLReasoner reasoner,
-                                @Nonnull OWLClass clazz, int level) throws OWLException {
+    private void printHierarchy(@Nonnull OWLReasoner reasoner, @Nonnull OWLClass clazz, int level)
+            throws OWLException {
         /*
          * Only print satisfiable classes -- otherwise we end up with bottom
          * everywhere
@@ -102,8 +100,7 @@ public final class SimpleHierarchyExample {
             }
             out.println(labelFor(clazz));
             /* Find the children and recurse */
-            for (OWLClass child : reasoner.getSubClasses(clazz, true)
-                    .getFlattened()) {
+            for (OWLClass child : reasoner.getSubClasses(clazz, true).getFlattened()) {
                 if (!child.equals(clazz)) {
                     printHierarchy(reasoner, child, level + 1);
                 }
@@ -119,22 +116,17 @@ public final class SimpleHierarchyExample {
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
         // We load an ontology from the URI specified
         // on the command line
-//        String x = args[0];
-//        System.out.println(x);
-//        IRI documentIRI = IRI.create(x);
-//        OWLOntology ontology = manager.loadOntologyFromOntologyDocument(documentIRI);
 
         // Now load the ontology.
-
         File file = new File(PATH + "pizza.owl");
         IRI documentIRI = IRI.create(file);
 
         Render render = new Render();
 
-        render.render(documentIRI);
+        XMLparserTakeTwo parse2 = new XMLparserTakeTwo();
+        parse2.parse(PATH + "owlnl.xml");
 
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(documentIRI);
-
 
         // Report information about the ontology
         System.out.println("Ontology Loaded...");
