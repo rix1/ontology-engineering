@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.PrintStream;
 import javax.annotation.Nonnull;
 
+import org.semanticweb.HermiT.Reasoner;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -127,6 +128,11 @@ public final class SimpleHierarchyExample {
 
         File file = new File(PATH + "pizza.owl");
         IRI documentIRI = IRI.create(file);
+
+        Render render = new Render();
+
+        render.render(documentIRI);
+
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(documentIRI);
 
 
@@ -135,7 +141,6 @@ public final class SimpleHierarchyExample {
         System.out.println("Document IRI: " + documentIRI);
         System.out.println("Ontology : " + ontology.getOntologyID());
         System.out.println("Format      : " + manager.getOntologyFormat(ontology));
-
 
         // / Create a new SimpleHierarchy object with the given reasoner.
         @SuppressWarnings("null")
@@ -148,11 +153,17 @@ public final class SimpleHierarchyExample {
     }
 
     public static OWLReasoner getReasoner(OWLOntology ontology) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+
+
         String reasonerFactoryName;
         reasonerFactoryName = "uk.ac.manchester.cs.jfact.JFactFactory"; // For api-level 4
 //        reasonerFactoryName = "org.semanticweb.elk.owlapi.ElkReasonerFactory";
+//        reasonerFactoryName = "org.semanticweb.HermiT.Reasoner$ReasonerFactory";
 
         OWLReasonerFactory reasonerFactory = (OWLReasonerFactory) Class.forName(reasonerFactoryName).newInstance();
+        reasonerFactory.createReasoner(ontology);
+
+
         return reasonerFactory.createReasoner(ontology);
     }
 }
