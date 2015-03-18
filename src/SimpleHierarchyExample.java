@@ -13,8 +13,11 @@
 
 import static org.semanticweb.owlapi.search.Searcher.annotations;
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Arrays;
 import javax.annotation.Nonnull;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
@@ -23,8 +26,10 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLException;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.reasoner.NodeSet;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
+import org.xml.sax.SAXException;
 
 /**
  * Simple example. Read an ontology, and display the class hierarchy. May use a
@@ -39,8 +44,10 @@ public final class SimpleHierarchyExample {
 
     public static final String PATH = "/Users/rikardeide/Development/ontology-engineering/temp/";
     private static final int INDENT = 4;
-        private final OWLOntology ontology;
+    private final OWLOntology ontology;
     private final PrintStream out;
+    private static XMLparserTakeTwo parser;
+    private Constraint con;
 
     private SimpleHierarchyExample(@Nonnull OWLOntology inputOntology) {
         this.ontology = inputOntology;
@@ -52,18 +59,6 @@ public final class SimpleHierarchyExample {
      * assuming this class is at the given level. Makes no attempt to deal
      * sensibly with multiple inheritance.
      */
-    private void printHierarchy(@Nonnull OWLClass clazz) throws OWLException, IllegalAccessException, ClassNotFoundException, InstantiationException {
-        OWLReasoner reasoner = getReasoner(ontology);
-        printHierarchy(reasoner, clazz, 0);
-        /* Now print out any unsatisfiable classes */
-        for (OWLClass cl : ontology.getClassesInSignature()) {
-            assert cl != null;
-            if (!reasoner.isSatisfiable(cl)) {
-                out.println("XXX: " + labelFor(cl));
-            }
-        }
-        reasoner.dispose();
-    }
 
 
     private String labelFor(@Nonnull OWLClass clazz) {
@@ -78,34 +73,102 @@ public final class SimpleHierarchyExample {
         if (le.getResult() != null) {
             return le.getResult();
         } else {
-            return clazz.getIRI().toString();
+//            return clazz.getIRI().toString();
+            return "";
         }
     }
 
 
+    private boolean testLabelFor(@Nonnull OWLClass clz){
+        String test = labelFor(clz);
+
+        return !test.equals("") || !test.equals(" ");
+//        return true;
+    }
+
+
     /**
-     * Print the class hierarchy from this class down, assuming this class is at
-     * the given level. Makes no attempt to deal sensibly with multiple
-     * inheritance.
+     * Verbalizes Subclasses
      */
-    private void printHierarchy(@Nonnull OWLReasoner reasoner, @Nonnull OWLClass clazz, int level)
-            throws OWLException {
+    private void verbalizeSubClasses(@Nonnull OWLReasoner reasoner, @Nonnull OWLClass parent)
+            throws OWLException, IOException, SAXException, ParserConfigurationException {
         /*
          * Only print satisfiable classes -- otherwise we end up with bottom
          * everywhere
          */
-        if (reasoner.isSatisfiable(clazz)) {
-            for (int i = 0; i < level * INDENT; i++) {
-                out.print(" ");
-            }
-            out.println(labelFor(clazz));
+
+        if (reasoner.isSatisfiable(parent)) {
+
             /* Find the children and recurse */
-            for (OWLClass child : reasoner.getSubClasses(clazz, true).getFlattened()) {
-                if (!child.equals(clazz)) {
-                    printHierarchy(reasoner, child, level + 1);
+            for (OWLClass child : reasoner.getSubClasses(parent, true).getFlattened()) {
+                if (!child.equals(parent)) {
+                    if(testLabelFor(parent)){
+                        System.out.println(con.createVerbalization(labelFor(child), labelFor(parent)));
+                    }
+                    verbalizeSubClasses(reasoner, child);
                 }
             }
         }
+    }
+
+    /**
+     * V.0.1
+     * Select what operation to do by passing arguments.
+     * This sets the constraint (cant figure out a better name) and initiates the correct method
+    * */
+
+    public void startVerbalizer(@Nonnull OWLClass clazz) throws IllegalAccessException, InstantiationException, IOException, ClassNotFoundException, SAXException, ParserConfigurationException, OWLException {
+        OWLReasoner reasoner = getReasoner(ontology);
+        setConstraint(XMLparserTakeTwo.SUBSUMPTION); // Select type here
+
+        verbalizeSubClasses(reasoner, clazz);
+
+
+        /* Now print out any unsatisfiable classes */
+        for (OWLClass cl : ontology.getClassesInSignature()) {
+            assert cl != null;
+            if (!reasoner.isSatisfiable(cl)) {
+                out.println("XXX: " + labelFor(cl));
+            }
+        }
+        reasoner.dispose();
+    }
+
+    public void setConstraint(String type){
+        con = parser.getSchema(type);
+        System.out.println(con.toString());
+    }
+
+
+    private void getProperty(@Nonnull OWLClass clazz)
+            throws OWLException, IllegalAccessException, ClassNotFoundException, InstantiationException {
+        /*
+         * Only print satisfiable classes -- otherwise we end up with bottom
+         * everywhere
+         */
+
+        OWLReasoner reasoner = getReasoner(ontology);
+
+        if (reasoner.isSatisfiable(clazz)) {
+
+            // Find children that are subclasses
+//            for (OWLClass child : reasoner.getSubClasses(clazz, true).getFlattened()) {
+            NodeSet subClasses = reasoner.getSubClasses(clazz, false);
+            NodeSet disjointClasses = reasoner.getDisjointClasses(clazz);
+//            NodeSet objectVals = reasoner.getEquivalentClasses(clazz); This is done on a Node level
+
+
+            System.out.println("HERE:\n" + Arrays.toString(subClasses.getNodes().toArray()));
+
+//            for (OWLClass child : reasoner.getSubClasses(clazz, true).getFlattened()) {
+//                if (!child.equals(clazz)) {
+//                    System.out.println("Here:\n");
+//                    System.out.println(child.toString());
+//                }
+//            }
+
+        }
+
     }
 
 
@@ -118,13 +181,14 @@ public final class SimpleHierarchyExample {
         // on the command line
 
         // Now load the ontology.
-        File file = new File(PATH + "pizza.owl");
+        File file = new File(PATH + "familie-2.owl");
         IRI documentIRI = IRI.create(file);
 
-        Render render = new Render();
+        parser = new XMLparserTakeTwo();
+        parser.loadDocument(PATH + "owlnl.xml");
 
-        XMLparserTakeTwo parse2 = new XMLparserTakeTwo();
-        parse2.parse(PATH + "owlnl.xml");
+//        parser.getSchema(XMLparserTakeTwo.SUBSUMPTION);
+//        parser.parse(PATH + "owlnl.xml");
 
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(documentIRI);
 
@@ -140,13 +204,18 @@ public final class SimpleHierarchyExample {
         // Get Thing
         OWLClass clazz = manager.getOWLDataFactory().getOWLThing();
         System.out.println("Class       : " + clazz);
+
+
+
         // Print the hierarchy below thing
-        simpleHierarchy.printHierarchy(clazz);
+        simpleHierarchy.startVerbalizer(clazz);
+//        simpleHierarchy.printHierarchy(clazz);
+//        simpleHierarchy.getProperty(clazz);
     }
 
+
+
     public static OWLReasoner getReasoner(OWLOntology ontology) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-
-
         String reasonerFactoryName;
         reasonerFactoryName = "uk.ac.manchester.cs.jfact.JFactFactory"; // For api-level 4
 //        reasonerFactoryName = "org.semanticweb.elk.owlapi.ElkReasonerFactory";

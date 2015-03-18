@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#"
+     xml:base="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harBarn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harBarn">
+        <rdfs:label rdf:datatype="&xsd;string">harBarn</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harForelder -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harForelder">
+        <rdfs:label rdf:datatype="&xsd;string">harForelder</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harNevø -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harNevø">
+        <rdfs:label rdf:datatype="&xsd;string">harNevø</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harNiese -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harNiese">
+        <rdfs:label rdf:datatype="&xsd;string">harNiese</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harOnkel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harOnkel">
+        <rdfs:label rdf:datatype="&xsd;string">harOnkel</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harTante -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harTante">
+        <rdfs:label rdf:datatype="&xsd;string">harTante</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Barn -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Barn">
+        <rdfs:label rdf:datatype="&xsd;string">Barn</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harForelder"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Far"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harForelder"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mor"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Forelder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Datter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Datter">
+        <rdfs:label rdf:datatype="&xsd;string">Datter</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Barn"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Far -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Far">
+        <rdfs:label rdf:datatype="&xsd;string">Far</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Forelder"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Forelder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Forelder">
+        <rdfs:label rdf:datatype="&xsd;string">Forelder</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harBarn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne">
+        <rdfs:label rdf:datatype="&xsd;string">Kvinne</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann">
+        <rdfs:label rdf:datatype="&xsd;string">Mann</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mor">
+        <rdfs:label rdf:datatype="&xsd;string">Mor</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Forelder"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Nevø -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Nevø">
+        <rdfs:label rdf:datatype="&xsd;string">Nevø</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harOnkel"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harTante"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Slektning"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Niese -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Niese">
+        <rdfs:label rdf:datatype="&xsd;string">Niese</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harOnkel"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harTante"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Slektning"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Onkel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Onkel">
+        <rdfs:label rdf:datatype="&xsd;string">Onkel</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harNevø"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harNiese"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Slektning"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person">
+        <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Slektning -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Slektning">
+        <rdfs:label rdf:datatype="&xsd;string">Slektning</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Sønn -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Sønn">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Barn"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Tante -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Tante">
+        <rdfs:label rdf:datatype="&xsd;string">Tante</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harNevø"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harNiese"/>
+                                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Slektning"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&owl;Thing">
+        <rdfs:label rdf:datatype="&xsd;string">Thing</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

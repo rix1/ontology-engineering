@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#"
+     xml:base="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie">
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harBarn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harBarn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Barn -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Barn">
+        <rdfs:label rdf:datatype="&xsd;string">Barn</rdfs:label>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Forelder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Far -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Far">
+        <rdfs:label rdf:datatype="&xsd;string">Far</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Forelder"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Forelder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Forelder">
+        <rdfs:label rdf:datatype="&xsd;string">Forelder</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#harBarn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne">
+        <rdfs:label rdf:datatype="&xsd;string">Kvinne</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann">
+        <rdfs:label rdf:datatype="&xsd;string">Mann</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mor">
+        <rdfs:label rdf:datatype="&xsd;string">Mor</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Forelder"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Person">
+        <rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Kvinne"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Mann"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Hankjønn -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Hankjønn"/>
+    
+
+
+    <!-- http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Hunkjønn -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/siriholtnaes/ontologies/2015/2/familie#Hunkjønn"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
