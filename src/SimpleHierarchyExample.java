@@ -243,16 +243,28 @@ public final class SimpleHierarchyExample {
 
 
     public static void main(String[] args) throws  Exception { // OWLException, InstantiationException, IllegalAccessException, ClassNotFoundException
-        // We first need to obtain a copy of an
-        // OWLOntologyManager, which, as the name
-        // suggests, manages a set of ontologies.
-        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-        // We load an ontology from the URI specified
-        // on the command line
 
-        // Now load the ontology.
-        File file = new File(PATH + "familie.owl");
-        IRI documentIRI = IRI.create(file);
+        /*
+        * ARGS:
+        * 0: URL to OWL Ontology
+        * 1: Path to XML rules
+        *
+        * */
+
+        String xmlSchemaPath = PATH + "owlnl.xml";
+        String ontologyURI = PATH + "familie.owl";
+
+        if (!args[0].equals(null)) {
+            ontologyURI = args[0];
+            xmlSchemaPath = args[1];
+        }
+
+        OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+
+//        File file = new File(PATH + "familie.owl");
+        IRI documentIRI = IRI.create(ontologyURI);
+
+        // Add arguments on startup
 
 
         // Writes to a file with functional syntax
@@ -260,10 +272,8 @@ public final class SimpleHierarchyExample {
 //        render.render(documentIRI);
 
         parser = new XMLparserTakeTwo();
-        parser.loadDocument(PATH + "owlnl.xml");
+        parser.loadDocument(xmlSchemaPath);
 
-//        parser.getSchema(XMLparserTakeTwo.DISJUNCTION);
-//        parser.parse(PATH + "owlnl.xml");
 
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(documentIRI);
 
