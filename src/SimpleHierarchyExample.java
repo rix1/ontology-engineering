@@ -12,10 +12,12 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. */
 
 import static org.semanticweb.owlapi.search.Searcher.annotations;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintStream;
+
+import java.io.*;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 import javax.annotation.Nonnull;
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -48,6 +50,8 @@ public final class SimpleHierarchyExample {
     private final PrintStream out;
     private static XMLparserTakeTwo parser;
     private Constraint con;
+    private int counter = 0;
+    private String verbalization;
 
     private SimpleHierarchyExample(@Nonnull OWLOntology inputOntology) {
         this.ontology = inputOntology;
@@ -79,6 +83,11 @@ public final class SimpleHierarchyExample {
     }
 
 
+    private String getName(@Nonnull OWLClass claz) {
+        String temp = claz.getIRI().toString();
+        return temp.split("#")[1];
+    }
+
     private boolean testLabelFor(@Nonnull OWLClass clz){
         String test = labelFor(clz);
 
@@ -90,7 +99,7 @@ public final class SimpleHierarchyExample {
     /**
      * Verbalizes Subclasses
      */
-    private void verbalizeSubClasses(@Nonnull OWLReasoner reasoner, @Nonnull OWLClass parent)
+    private String verbalizeSubClasses(@Nonnull OWLReasoner reasoner, @Nonnull OWLClass parent)
             throws OWLException, IOException, SAXException, ParserConfigurationException {
         /*
          * Only print satisfiable classes -- otherwise we end up with bottom
@@ -103,12 +112,67 @@ public final class SimpleHierarchyExample {
             for (OWLClass child : reasoner.getSubClasses(parent, true).getFlattened()) {
                 if (!child.equals(parent)) {
                     if(testLabelFor(parent)){
+                        verbalization += "\n" + con.createVerbalization(labelFor(child), labelFor(parent));
                         System.out.println(con.createVerbalization(labelFor(child), labelFor(parent)));
+//                        System.out.println(child.containsConjunct());
                     }
                     verbalizeSubClasses(reasoner, child);
                 }
             }
         }
+        return verbalization;
+    }
+
+    private void verbalizeDisjointClasses(@Nonnull OWLReasoner reasoner, @Nonnull OWLClass parent){
+        if(reasoner.isSatisfiable(parent)){
+
+            HashSet nodeSet = (HashSet) reasoner.getDisjointClasses(parent).getFlattened();
+
+            System.out.println("disjoint " + nodeSet.toString());
+
+            Iterator it = nodeSet.iterator();
+
+            System.out.println("\n## " + getName(parent) + " :");
+
+            while(it.hasNext()){
+                OWLClass ff = (OWLClass)it.next();
+                System.out.println(con.createVerbalization(getName(ff), getName(parent)));
+//                System.out.println(getName(ff));
+//                System.out.println(ff.getIRI().toString());
+            }
+
+            Set<OWLClass> classes = reasoner.getSubClasses(parent, false).getFlattened();
+            System.out.println(classes.size());
+
+            if(counter < 3) {
+                for (OWLClass child : classes) {
+                    if (!child.equals(parent)) {
+                        verbalizeDisjointClasses(reasoner, child);
+                        counter++;
+                    }
+//                System.out.println(child.toStringID());
+                }
+            }
+
+
+//            System.out.println(Arrays.toString(a));
+
+//            System.out.println(nodeSet.getNodes().size());
+
+//            for(OWLClass child : reasoner.getDisjointClasses(parent).getFlattened()){
+//                if(!child.equals(parent)){
+//                    System.out.println(con.createVerbalization(labelFor(child), labelFor(parent)));
+//                }
+//                verbalizeDisjointClasses(reasoner, child);
+//            }
+        }
+    }
+
+    public boolean writeToFile(String contents) throws FileNotFoundException, UnsupportedEncodingException {
+        PrintWriter writer = new PrintWriter("temp/output.txt", "utf-8");
+        writer.write(contents);
+        writer.close();
+        return true;
     }
 
     /**
@@ -121,8 +185,14 @@ public final class SimpleHierarchyExample {
         OWLReasoner reasoner = getReasoner(ontology);
         setConstraint(XMLparserTakeTwo.SUBSUMPTION); // Select type here
 
-        verbalizeSubClasses(reasoner, clazz);
+        verbalization = "";
+        verbalization += verbalizeSubClasses(reasoner, clazz);
+//        verbalizeDisjointClasses(reasoner, clazz);
 
+
+        writeToFile(verbalization);
+
+        System.out.println("File written to disk. Disposing...");
 
         /* Now print out any unsatisfiable classes */
         for (OWLClass cl : ontology.getClassesInSignature()) {
@@ -181,13 +251,18 @@ public final class SimpleHierarchyExample {
         // on the command line
 
         // Now load the ontology.
-        File file = new File(PATH + "familie-2.owl");
+        File file = new File(PATH + "familie.owl");
         IRI documentIRI = IRI.create(file);
+
+
+        // Writes to a file with functional syntax
+//        Render render = new Render();
+//        render.render(documentIRI);
 
         parser = new XMLparserTakeTwo();
         parser.loadDocument(PATH + "owlnl.xml");
 
-//        parser.getSchema(XMLparserTakeTwo.SUBSUMPTION);
+//        parser.getSchema(XMLparserTakeTwo.DISJUNCTION);
 //        parser.parse(PATH + "owlnl.xml");
 
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(documentIRI);
@@ -198,14 +273,11 @@ public final class SimpleHierarchyExample {
         System.out.println("Ontology : " + ontology.getOntologyID());
         System.out.println("Format      : " + manager.getOntologyFormat(ontology));
 
-        // / Create a new SimpleHierarchy object with the given reasoner.
-        @SuppressWarnings("null")
+        // Create a new SimpleHierarchy object with the given reasoner.
         SimpleHierarchyExample simpleHierarchy = new SimpleHierarchyExample(ontology);
         // Get Thing
         OWLClass clazz = manager.getOWLDataFactory().getOWLThing();
         System.out.println("Class       : " + clazz);
-
-
 
         // Print the hierarchy below thing
         simpleHierarchy.startVerbalizer(clazz);

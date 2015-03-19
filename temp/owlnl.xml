@@ -14,18 +14,17 @@
 	<OWLNLBody>
 
 		<Constraint xsi:type="SubClassOf">
-			<Text> -[subsumption] </Text>
+			<Text> -[subsumption] Hver</Text>
 			<Object index="0"/>
 			<Text>er en/t</Text>
 			<Object index="1"/>
 		</Constraint>
 
-		<Constraint xsi:type="DisjointClasses">
-			<Text> -[disjunction] </Text>
+			<Constraint xsi:type="ObjectIntersectionOf">
+			<Text> -[intersection] </Text>
 			<Object index="0"/>
 			<Text> og </Text>
 			<Object index="1"/>
-			<Text>, er ikke det samme</Text>
 		</Constraint>
 
 		<Constraint xsi:type="ObjectSomeValuesFrom">

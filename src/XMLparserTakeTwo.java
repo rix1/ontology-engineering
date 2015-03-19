@@ -2,6 +2,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.traversal.DocumentTraversal;
+import org.w3c.dom.traversal.NodeFilter;
+import org.w3c.dom.traversal.NodeIterator;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -34,21 +37,36 @@ public class XMLparserTakeTwo {
         NodeList nList = doc.getElementsByTagName("Constraint");
 
         for (int i = 0; i < nList.getLength(); i++) {
-
             Node nNode = nList.item(i);
 
-            String test = "SubClassOf";
+
+            NodeIterator ni = ((DocumentTraversal)doc).createNodeIterator(nNode, NodeFilter.SHOW_ELEMENT, null, true);
+
+            System.out.println("RIKARD");
+            System.out.println(ni.nextNode());
+            System.out.println(ni.nextNode().getAttributes());
+            System.out.println(ni.nextNode());
+            System.out.println(ni.nextNode());
+            System.out.println(ni.nextNode());
+            System.out.println(ni.nextNode());
+            System.out.println("RIKARD");
+
+
+            String test = SUBSUMPTION;
 
             if(nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
 
                 if (eElement.getAttribute("xsi:type").equals(test)) {
+
                     System.out.println("HEEEY");
                     System.out.println("ElementType : " + eElement.getAttribute("xsi:type"));
                     System.out.println("Description : " + eElement.getElementsByTagName("Text").item(0).getTextContent());
                     System.out.println("Desc Index : " + eElement.getElementsByTagName("Object").item(0).getAttributes().getNamedItem("index").getNodeValue());
                     System.out.println("Value : " + eElement.getElementsByTagName("Text").item(1).getTextContent());
                     System.out.println("Value Index : " + eElement.getElementsByTagName("Object").item(1).getAttributes().getNamedItem("index").getNodeValue());
+                    String a =  eElement.getElementsByTagName("Text").item(2).getTextContent();
+                    System.out.println("TESTING : " + a);
                 }
             }
         }
@@ -77,23 +95,43 @@ public class XMLparserTakeTwo {
             if(node.getNodeType() == Node.ELEMENT_NODE){
                 element = (Element) node;
 
-                con = new Constraint();
 
-                if(element.getAttribute("xsi:type").equals(type)){
-//                    System.out.println("ElementType : " + element.getAttribute("xsi:type"));
-//                    System.out.println("Description : " + element.getElementsByTagName("Text").item(0).getTextContent());
-//                    System.out.println("Desc Index : " + element.getElementsByTagName("Object").item(0).getAttributes().getNamedItem("index").getNodeValue());
-//                    System.out.println("Value : " + element.getElementsByTagName("Text").item(1).getTextContent());
-//                    System.out.println("Value Index : " + element.getElementsByTagName("Object").item(1).getAttributes().getNamedItem("index").getNodeValue());
+                if(type.equals(XMLparserTakeTwo.SUBSUMPTION) && element.getAttribute("xsi:type").equals(type)){
+                    con = genereateSubsumption(element);
+                }
+                if(type.equals(XMLparserTakeTwo.DISJUNCTION) && element.getAttribute("xsi:type").equals(type)){
+                    con = genereateDisjunction(element);
 
-                    con.setText1(element.getElementsByTagName("Text").item(0).getTextContent());
-                    con.setPos1(Integer.parseInt(element.getElementsByTagName("Object").item(0).getAttributes().getNamedItem("index").getNodeValue()));
-                    con.setText2(element.getElementsByTagName("Text").item(1).getTextContent());
-                    con.setPos2(Integer.parseInt(element.getElementsByTagName("Object").item(1).getAttributes().getNamedItem("index").getNodeValue()));
-                    return con;
+                }
+                if(type.equals(XMLparserTakeTwo.EXISTENTIAL) && element.getAttribute("xsi:type").equals(type)){
+                    con = genereateExistential(element);
                 }
             }
         }
         return con;
+    }
+
+    private Constraint genereateSubsumption(Element e){
+        Constraint con = new Constraint();
+        con.setXmlText1(e.getElementsByTagName("Text").item(0).getTextContent());
+        con.setPos1(Integer.parseInt(e.getElementsByTagName("Object").item(0).getAttributes().getNamedItem("index").getNodeValue()));
+        con.setXmlText2(e.getElementsByTagName("Text").item(1).getTextContent());
+        con.setPos2(Integer.parseInt(e.getElementsByTagName("Object").item(1).getAttributes().getNamedItem("index").getNodeValue()));
+
+        return con;
+
+    }
+    private Constraint genereateDisjunction(Element e){
+        Constraint con = new Constraint();
+        con.setXmlText1(e.getElementsByTagName("Text").item(0).getTextContent());
+        con.setPos1(Integer.parseInt(e.getElementsByTagName("Object").item(0).getAttributes().getNamedItem("index").getNodeValue()));
+        con.setXmlText2(e.getElementsByTagName("Text").item(1).getTextContent());
+        con.setPos2(Integer.parseInt(e.getElementsByTagName("Object").item(1).getAttributes().getNamedItem("index").getNodeValue()));
+        con.setXmlText3(e.getElementsByTagName("Text").item(2).getTextContent());
+        return con;
+    }
+    private Constraint genereateExistential(Element e){
+        // It is actually the same as Subsumption
+        return genereateSubsumption(e);
     }
 }

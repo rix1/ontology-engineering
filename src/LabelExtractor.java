@@ -29,6 +29,7 @@ class LabelExtractor extends OWLObjectVisitorExAdapter<String> implements
          * If it's a label, grab it as the result. Note that if there are
          * multiple labels, the last one will be used.
          */
+
         if (node.getProperty().isLabel()) {
             OWLLiteral c = (OWLLiteral) node.getValue();
             result = c.getLiteral();
