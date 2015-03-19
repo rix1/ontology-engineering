@@ -1,0 +1,643 @@
+
+ -[subsumption] Hver ValorDaParticao er en/t 
+ -[subsumption] Hver Tempero er en/t ValorDaParticao
+ -[subsumption] Hver Media er en/t Tempero
+ -[subsumption] Hver Sorvete er en/t Media
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Media
+ -[subsumption] Hver  er en/t Media
+ -[subsumption] Hver Picante er en/t Tempero
+ -[subsumption] Hver Sorvete er en/t Picante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Picante
+ -[subsumption] Hver  er en/t Picante
+ -[subsumption] Hver NaoPicante er en/t Tempero
+ -[subsumption] Hver Sorvete er en/t NaoPicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t NaoPicante
+ -[subsumption] Hver  er en/t NaoPicante
+ -[subsumption] Hver  er en/t 
+ -[subsumption] Hver  er en/t 
+ -[subsumption] Hver Pizza er en/t 
+ -[subsumption] Hver PizzaNaoVegetariana er en/t Pizza
+ -[subsumption] Hver PizzaDeCarne er en/t PizzaNaoVegetariana
+ -[subsumption] Hver Parmense er en/t PizzaDeCarne
+ -[subsumption] Hver Sorvete er en/t Parmense
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Parmense
+ -[subsumption] Hver  er en/t Parmense
+ -[subsumption] Hver AmericanaPicante er en/t PizzaDeCarne
+ -[subsumption] Hver Sorvete er en/t AmericanaPicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t AmericanaPicante
+ -[subsumption] Hver  er en/t AmericanaPicante
+ -[subsumption] Hver LaReine er en/t PizzaDeCarne
+ -[subsumption] Hver Sorvete er en/t LaReine
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t LaReine
+ -[subsumption] Hver  er en/t LaReine
+ -[subsumption] Hver SloppyGiuseppe er en/t PizzaDeCarne
+ -[subsumption] Hver Sorvete er en/t SloppyGiuseppe
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t SloppyGiuseppe
+ -[subsumption] Hver  er en/t SloppyGiuseppe
+ -[subsumption] Hver Americana er en/t PizzaDeCarne
+ -[subsumption] Hver Sorvete er en/t Americana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Americana
+ -[subsumption] Hver  er en/t Americana
+ -[subsumption] Hver PolloAdAstra er en/t PizzaDeCarne
+ -[subsumption] Hver Sorvete er en/t PolloAdAstra
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t PolloAdAstra
+ -[subsumption] Hver  er en/t PolloAdAstra
+ -[subsumption] Hver Siciliana er en/t PizzaDeCarne
+ -[subsumption] Hver Sorvete er en/t Siciliana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Siciliana
+ -[subsumption] Hver  er en/t Siciliana
+ -[subsumption] Hver QuatroQueijos er en/t PizzaDeCarne
+ -[subsumption] Hver Sorvete er en/t QuatroQueijos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t QuatroQueijos
+ -[subsumption] Hver  er en/t QuatroQueijos
+ -[subsumption] Hver Capricciosa er en/t PizzaDeCarne
+ -[subsumption] Hver Sorvete er en/t Capricciosa
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Capricciosa
+ -[subsumption] Hver  er en/t Capricciosa
+ -[subsumption] Hver Napoletana er en/t PizzaNaoVegetariana
+ -[subsumption] Hver Sorvete er en/t Napoletana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Napoletana
+ -[subsumption] Hver  er en/t Napoletana
+ -[subsumption] Hver FrutosDoMar er en/t PizzaNaoVegetariana
+ -[subsumption] Hver Sorvete er en/t FrutosDoMar
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t FrutosDoMar
+ -[subsumption] Hver  er en/t FrutosDoMar
+ -[subsumption] Hver Cajun er en/t PizzaNaoVegetariana
+ -[subsumption] Hver Sorvete er en/t Cajun
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cajun
+ -[subsumption] Hver  er en/t Cajun
+ -[subsumption] Hver PizzaComUmNome er en/t Pizza
+ -[subsumption] Hver Cogumelo er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Cogumelo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cogumelo
+ -[subsumption] Hver  er en/t Cogumelo
+ -[subsumption] Hver AmericanaPicante er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t AmericanaPicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t AmericanaPicante
+ -[subsumption] Hver  er en/t AmericanaPicante
+ -[subsumption] Hver LaReine er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t LaReine
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t LaReine
+ -[subsumption] Hver  er en/t LaReine
+ -[subsumption] Hver Napoletana er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Napoletana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Napoletana
+ -[subsumption] Hver  er en/t Napoletana
+ -[subsumption] Hver SloppyGiuseppe er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t SloppyGiuseppe
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t SloppyGiuseppe
+ -[subsumption] Hver  er en/t SloppyGiuseppe
+ -[subsumption] Hver Giardiniera er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Giardiniera
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Giardiniera
+ -[subsumption] Hver  er en/t Giardiniera
+ -[subsumption] Hver PolloAdAstra er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t PolloAdAstra
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t PolloAdAstra
+ -[subsumption] Hver  er en/t PolloAdAstra
+ -[subsumption] Hver QuatroQueijos er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t QuatroQueijos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t QuatroQueijos
+ -[subsumption] Hver  er en/t QuatroQueijos
+ -[subsumption] Hver QuatroQueijos er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t QuatroQueijos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t QuatroQueijos
+ -[subsumption] Hver  er en/t QuatroQueijos
+ -[subsumption] Hver Cajun er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Cajun
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cajun
+ -[subsumption] Hver  er en/t Cajun
+ -[subsumption] Hver PizzaAberta er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t PizzaAberta
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t PizzaAberta
+ -[subsumption] Hver  er en/t PizzaAberta
+ -[subsumption] Hver Capricciosa er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Capricciosa
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Capricciosa
+ -[subsumption] Hver  er en/t Capricciosa
+ -[subsumption] Hver Veneziana er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Veneziana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Veneziana
+ -[subsumption] Hver  er en/t Veneziana
+ -[subsumption] Hver Parmense er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Parmense
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Parmense
+ -[subsumption] Hver  er en/t Parmense
+ -[subsumption] Hver Soho er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Soho
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Soho
+ -[subsumption] Hver  er en/t Soho
+ -[subsumption] Hver Rosa er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Rosa
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Rosa
+ -[subsumption] Hver  er en/t Rosa
+ -[subsumption] Hver CoberturaPrinceCarlo er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver  er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver Americana er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Americana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Americana
+ -[subsumption] Hver  er en/t Americana
+ -[subsumption] Hver Fiorentina er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Fiorentina
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Fiorentina
+ -[subsumption] Hver  er en/t Fiorentina
+ -[subsumption] Hver Siciliana er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Siciliana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Siciliana
+ -[subsumption] Hver  er en/t Siciliana
+ -[subsumption] Hver FrutosDoMar er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t FrutosDoMar
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t FrutosDoMar
+ -[subsumption] Hver  er en/t FrutosDoMar
+ -[subsumption] Hver Caprina er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Caprina
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Caprina
+ -[subsumption] Hver  er en/t Caprina
+ -[subsumption] Hver Margherita er en/t PizzaComUmNome
+ -[subsumption] Hver Sorvete er en/t Margherita
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Margherita
+ -[subsumption] Hver  er en/t Margherita
+ -[subsumption] Hver PizzaInteressante er en/t Pizza
+ -[subsumption] Hver Cogumelo er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Cogumelo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cogumelo
+ -[subsumption] Hver  er en/t Cogumelo
+ -[subsumption] Hver AmericanaPicante er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t AmericanaPicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t AmericanaPicante
+ -[subsumption] Hver  er en/t AmericanaPicante
+ -[subsumption] Hver LaReine er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t LaReine
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t LaReine
+ -[subsumption] Hver  er en/t LaReine
+ -[subsumption] Hver Napoletana er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Napoletana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Napoletana
+ -[subsumption] Hver  er en/t Napoletana
+ -[subsumption] Hver SloppyGiuseppe er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t SloppyGiuseppe
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t SloppyGiuseppe
+ -[subsumption] Hver  er en/t SloppyGiuseppe
+ -[subsumption] Hver Giardiniera er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Giardiniera
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Giardiniera
+ -[subsumption] Hver  er en/t Giardiniera
+ -[subsumption] Hver PolloAdAstra er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t PolloAdAstra
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t PolloAdAstra
+ -[subsumption] Hver  er en/t PolloAdAstra
+ -[subsumption] Hver QuatroQueijos er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t QuatroQueijos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t QuatroQueijos
+ -[subsumption] Hver  er en/t QuatroQueijos
+ -[subsumption] Hver Cajun er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Cajun
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cajun
+ -[subsumption] Hver  er en/t Cajun
+ -[subsumption] Hver Capricciosa er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Capricciosa
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Capricciosa
+ -[subsumption] Hver  er en/t Capricciosa
+ -[subsumption] Hver Veneziana er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Veneziana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Veneziana
+ -[subsumption] Hver  er en/t Veneziana
+ -[subsumption] Hver Parmense er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Parmense
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Parmense
+ -[subsumption] Hver  er en/t Parmense
+ -[subsumption] Hver Soho er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Soho
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Soho
+ -[subsumption] Hver  er en/t Soho
+ -[subsumption] Hver CoberturaPrinceCarlo er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver  er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver Rosa er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Rosa
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Rosa
+ -[subsumption] Hver  er en/t Rosa
+ -[subsumption] Hver Americana er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Americana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Americana
+ -[subsumption] Hver  er en/t Americana
+ -[subsumption] Hver Fiorentina er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Fiorentina
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Fiorentina
+ -[subsumption] Hver  er en/t Fiorentina
+ -[subsumption] Hver Siciliana er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Siciliana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Siciliana
+ -[subsumption] Hver  er en/t Siciliana
+ -[subsumption] Hver FrutosDoMar er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t FrutosDoMar
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t FrutosDoMar
+ -[subsumption] Hver  er en/t FrutosDoMar
+ -[subsumption] Hver Caprina er en/t PizzaInteressante
+ -[subsumption] Hver Sorvete er en/t Caprina
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Caprina
+ -[subsumption] Hver  er en/t Caprina
+ -[subsumption] Hver  er en/t Pizza
+ -[subsumption] Hver PizzaItalianaReal er en/t 
+ -[subsumption] Hver Veneziana er en/t PizzaItalianaReal
+ -[subsumption] Hver Sorvete er en/t Veneziana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Veneziana
+ -[subsumption] Hver  er en/t Veneziana
+ -[subsumption] Hver Napoletana er en/t PizzaItalianaReal
+ -[subsumption] Hver Sorvete er en/t Napoletana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Napoletana
+ -[subsumption] Hver  er en/t Napoletana
+ -[subsumption] Hver PizzaTemperadaEquivalente er en/t Pizza
+ -[subsumption] Hver AmericanaPicante er en/t PizzaTemperadaEquivalente
+ -[subsumption] Hver Sorvete er en/t AmericanaPicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t AmericanaPicante
+ -[subsumption] Hver  er en/t AmericanaPicante
+ -[subsumption] Hver SloppyGiuseppe er en/t PizzaTemperadaEquivalente
+ -[subsumption] Hver Sorvete er en/t SloppyGiuseppe
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t SloppyGiuseppe
+ -[subsumption] Hver  er en/t SloppyGiuseppe
+ -[subsumption] Hver PolloAdAstra er en/t PizzaTemperadaEquivalente
+ -[subsumption] Hver Sorvete er en/t PolloAdAstra
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t PolloAdAstra
+ -[subsumption] Hver  er en/t PolloAdAstra
+ -[subsumption] Hver Cajun er en/t PizzaTemperadaEquivalente
+ -[subsumption] Hver Sorvete er en/t Cajun
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cajun
+ -[subsumption] Hver  er en/t Cajun
+ -[subsumption] Hver PizzaComQueijo er en/t Pizza
+ -[subsumption] Hver Cogumelo er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Cogumelo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cogumelo
+ -[subsumption] Hver  er en/t Cogumelo
+ -[subsumption] Hver AmericanaPicante er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t AmericanaPicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t AmericanaPicante
+ -[subsumption] Hver  er en/t AmericanaPicante
+ -[subsumption] Hver LaReine er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t LaReine
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t LaReine
+ -[subsumption] Hver  er en/t LaReine
+ -[subsumption] Hver Napoletana er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Napoletana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Napoletana
+ -[subsumption] Hver  er en/t Napoletana
+ -[subsumption] Hver SloppyGiuseppe er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t SloppyGiuseppe
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t SloppyGiuseppe
+ -[subsumption] Hver  er en/t SloppyGiuseppe
+ -[subsumption] Hver Giardiniera er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Giardiniera
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Giardiniera
+ -[subsumption] Hver  er en/t Giardiniera
+ -[subsumption] Hver PolloAdAstra er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t PolloAdAstra
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t PolloAdAstra
+ -[subsumption] Hver  er en/t PolloAdAstra
+ -[subsumption] Hver QuatroQueijos er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t QuatroQueijos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t QuatroQueijos
+ -[subsumption] Hver  er en/t QuatroQueijos
+ -[subsumption] Hver QuatroQueijos er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t QuatroQueijos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t QuatroQueijos
+ -[subsumption] Hver  er en/t QuatroQueijos
+ -[subsumption] Hver Cajun er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Cajun
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cajun
+ -[subsumption] Hver  er en/t Cajun
+ -[subsumption] Hver PizzaAberta er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t PizzaAberta
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t PizzaAberta
+ -[subsumption] Hver  er en/t PizzaAberta
+ -[subsumption] Hver Capricciosa er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Capricciosa
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Capricciosa
+ -[subsumption] Hver  er en/t Capricciosa
+ -[subsumption] Hver Veneziana er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Veneziana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Veneziana
+ -[subsumption] Hver  er en/t Veneziana
+ -[subsumption] Hver Parmense er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Parmense
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Parmense
+ -[subsumption] Hver  er en/t Parmense
+ -[subsumption] Hver Soho er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Soho
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Soho
+ -[subsumption] Hver  er en/t Soho
+ -[subsumption] Hver CoberturaPrinceCarlo er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver  er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver Rosa er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Rosa
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Rosa
+ -[subsumption] Hver  er en/t Rosa
+ -[subsumption] Hver Americana er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Americana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Americana
+ -[subsumption] Hver  er en/t Americana
+ -[subsumption] Hver Fiorentina er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Fiorentina
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Fiorentina
+ -[subsumption] Hver  er en/t Fiorentina
+ -[subsumption] Hver Siciliana er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Siciliana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Siciliana
+ -[subsumption] Hver  er en/t Siciliana
+ -[subsumption] Hver Caprina er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Caprina
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Caprina
+ -[subsumption] Hver  er en/t Caprina
+ -[subsumption] Hver Margherita er en/t PizzaComQueijo
+ -[subsumption] Hver Sorvete er en/t Margherita
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Margherita
+ -[subsumption] Hver  er en/t Margherita
+ -[subsumption] Hver PizzaVegetariana er en/t Pizza
+ -[subsumption] Hver PizzaVegetarianaEquivalente1 er en/t PizzaVegetariana
+ -[subsumption] Hver Veneziana er en/t PizzaVegetarianaEquivalente1
+ -[subsumption] Hver Sorvete er en/t Veneziana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Veneziana
+ -[subsumption] Hver  er en/t Veneziana
+ -[subsumption] Hver Cogumelo er en/t PizzaVegetarianaEquivalente1
+ -[subsumption] Hver Sorvete er en/t Cogumelo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cogumelo
+ -[subsumption] Hver  er en/t Cogumelo
+ -[subsumption] Hver Soho er en/t PizzaVegetarianaEquivalente1
+ -[subsumption] Hver Sorvete er en/t Soho
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Soho
+ -[subsumption] Hver  er en/t Soho
+ -[subsumption] Hver Rosa er en/t PizzaVegetarianaEquivalente1
+ -[subsumption] Hver Sorvete er en/t Rosa
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Rosa
+ -[subsumption] Hver  er en/t Rosa
+ -[subsumption] Hver CoberturaPrinceCarlo er en/t PizzaVegetarianaEquivalente1
+ -[subsumption] Hver Sorvete er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver  er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver Giardiniera er en/t PizzaVegetarianaEquivalente1
+ -[subsumption] Hver Sorvete er en/t Giardiniera
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Giardiniera
+ -[subsumption] Hver  er en/t Giardiniera
+ -[subsumption] Hver Fiorentina er en/t PizzaVegetarianaEquivalente1
+ -[subsumption] Hver Sorvete er en/t Fiorentina
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Fiorentina
+ -[subsumption] Hver  er en/t Fiorentina
+ -[subsumption] Hver Caprina er en/t PizzaVegetarianaEquivalente1
+ -[subsumption] Hver Sorvete er en/t Caprina
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Caprina
+ -[subsumption] Hver  er en/t Caprina
+ -[subsumption] Hver QuatroQueijos er en/t PizzaVegetarianaEquivalente1
+ -[subsumption] Hver Sorvete er en/t QuatroQueijos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t QuatroQueijos
+ -[subsumption] Hver  er en/t QuatroQueijos
+ -[subsumption] Hver Margherita er en/t PizzaVegetarianaEquivalente1
+ -[subsumption] Hver Sorvete er en/t Margherita
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Margherita
+ -[subsumption] Hver  er en/t Margherita
+ -[subsumption] Hver PizzaVegetarianaEquivalente2 er en/t PizzaVegetariana
+ -[subsumption] Hver Veneziana er en/t PizzaVegetarianaEquivalente2
+ -[subsumption] Hver Sorvete er en/t Veneziana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Veneziana
+ -[subsumption] Hver  er en/t Veneziana
+ -[subsumption] Hver Cogumelo er en/t PizzaVegetarianaEquivalente2
+ -[subsumption] Hver Sorvete er en/t Cogumelo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cogumelo
+ -[subsumption] Hver  er en/t Cogumelo
+ -[subsumption] Hver Soho er en/t PizzaVegetarianaEquivalente2
+ -[subsumption] Hver Sorvete er en/t Soho
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Soho
+ -[subsumption] Hver  er en/t Soho
+ -[subsumption] Hver Rosa er en/t PizzaVegetarianaEquivalente2
+ -[subsumption] Hver Sorvete er en/t Rosa
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Rosa
+ -[subsumption] Hver  er en/t Rosa
+ -[subsumption] Hver CoberturaPrinceCarlo er en/t PizzaVegetarianaEquivalente2
+ -[subsumption] Hver Sorvete er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver  er en/t CoberturaPrinceCarlo
+ -[subsumption] Hver Giardiniera er en/t PizzaVegetarianaEquivalente2
+ -[subsumption] Hver Sorvete er en/t Giardiniera
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Giardiniera
+ -[subsumption] Hver  er en/t Giardiniera
+ -[subsumption] Hver Fiorentina er en/t PizzaVegetarianaEquivalente2
+ -[subsumption] Hver Sorvete er en/t Fiorentina
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Fiorentina
+ -[subsumption] Hver  er en/t Fiorentina
+ -[subsumption] Hver Caprina er en/t PizzaVegetarianaEquivalente2
+ -[subsumption] Hver Sorvete er en/t Caprina
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Caprina
+ -[subsumption] Hver  er en/t Caprina
+ -[subsumption] Hver QuatroQueijos er en/t PizzaVegetarianaEquivalente2
+ -[subsumption] Hver Sorvete er en/t QuatroQueijos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t QuatroQueijos
+ -[subsumption] Hver  er en/t QuatroQueijos
+ -[subsumption] Hver Margherita er en/t PizzaVegetarianaEquivalente2
+ -[subsumption] Hver Sorvete er en/t Margherita
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Margherita
+ -[subsumption] Hver  er en/t Margherita
+ -[subsumption] Hver PizzaTemperada er en/t Pizza
+ -[subsumption] Hver AmericanaPicante er en/t PizzaTemperada
+ -[subsumption] Hver Sorvete er en/t AmericanaPicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t AmericanaPicante
+ -[subsumption] Hver  er en/t AmericanaPicante
+ -[subsumption] Hver SloppyGiuseppe er en/t PizzaTemperada
+ -[subsumption] Hver Sorvete er en/t SloppyGiuseppe
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t SloppyGiuseppe
+ -[subsumption] Hver  er en/t SloppyGiuseppe
+ -[subsumption] Hver PolloAdAstra er en/t PizzaTemperada
+ -[subsumption] Hver Sorvete er en/t PolloAdAstra
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t PolloAdAstra
+ -[subsumption] Hver  er en/t PolloAdAstra
+ -[subsumption] Hver Cajun er en/t PizzaTemperada
+ -[subsumption] Hver Sorvete er en/t Cajun
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Cajun
+ -[subsumption] Hver  er en/t Cajun
+ -[subsumption] Hver CoberturaDaPizza er en/t 
+ -[subsumption] Hver CoberturaTemperada er en/t CoberturaDaPizza
+ -[subsumption] Hver CoberturaDeJalapeno er en/t CoberturaTemperada
+ -[subsumption] Hver Sorvete er en/t CoberturaDeJalapeno
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeJalapeno
+ -[subsumption] Hver  er en/t CoberturaDeJalapeno
+ -[subsumption] Hver CoberturaDeBifePicante er en/t CoberturaTemperada
+ -[subsumption] Hver Sorvete er en/t CoberturaDeBifePicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeBifePicante
+ -[subsumption] Hver  er en/t CoberturaDeBifePicante
+ -[subsumption] Hver MolhoTobascoPepper er en/t CoberturaTemperada
+ -[subsumption] Hver Sorvete er en/t MolhoTobascoPepper
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t MolhoTobascoPepper
+ -[subsumption] Hver  er en/t MolhoTobascoPepper
+ -[subsumption] Hver CoberturaDeCajun er en/t CoberturaTemperada
+ -[subsumption] Hver Sorvete er en/t CoberturaDeCajun
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeCajun
+ -[subsumption] Hver  er en/t CoberturaDeCajun
+ -[subsumption] Hver CoberturaDePimentaoVerdePicante er en/t CoberturaTemperada
+ -[subsumption] Hver Sorvete er en/t CoberturaDePimentaoVerdePicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDePimentaoVerdePicante
+ -[subsumption] Hver  er en/t CoberturaDePimentaoVerdePicante
+ -[subsumption] Hver CoberturaVegetariana er en/t CoberturaDaPizza
+ -[subsumption] Hver CoberturaDeFrutas er en/t CoberturaVegetariana
+ -[subsumption] Hver CoberturaSultana er en/t CoberturaDeFrutas
+ -[subsumption] Hver Sorvete er en/t CoberturaSultana
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaSultana
+ -[subsumption] Hver  er en/t CoberturaSultana
+ -[subsumption] Hver CoberturaDeQueijo er en/t CoberturaVegetariana
+ -[subsumption] Hver CoberturaDeMozzarella er en/t CoberturaDeQueijo
+ -[subsumption] Hver Sorvete er en/t CoberturaDeMozzarella
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeMozzarella
+ -[subsumption] Hver  er en/t CoberturaDeMozzarella
+ -[subsumption] Hver CoberturaDeGorgonzola er en/t CoberturaDeQueijo
+ -[subsumption] Hver Sorvete er en/t CoberturaDeGorgonzola
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeGorgonzola
+ -[subsumption] Hver  er en/t CoberturaDeGorgonzola
+ -[subsumption] Hver CoberturaQuatroQueijos er en/t CoberturaDeQueijo
+ -[subsumption] Hver Sorvete er en/t CoberturaQuatroQueijos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaQuatroQueijos
+ -[subsumption] Hver  er en/t CoberturaQuatroQueijos
+ -[subsumption] Hver CoberturaDeParmesao er en/t CoberturaDeQueijo
+ -[subsumption] Hver Sorvete er en/t CoberturaDeParmesao
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeParmesao
+ -[subsumption] Hver  er en/t CoberturaDeParmesao
+ -[subsumption] Hver CoberturaDeQueijoDeCabra er en/t CoberturaDeQueijo
+ -[subsumption] Hver Sorvete er en/t CoberturaDeQueijoDeCabra
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeQueijoDeCabra
+ -[subsumption] Hver  er en/t CoberturaDeQueijoDeCabra
+ -[subsumption] Hver CoberturaEmMolho er en/t CoberturaVegetariana
+ -[subsumption] Hver MolhoTobascoPepper er en/t CoberturaEmMolho
+ -[subsumption] Hver Sorvete er en/t MolhoTobascoPepper
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t MolhoTobascoPepper
+ -[subsumption] Hver  er en/t MolhoTobascoPepper
+ -[subsumption] Hver CoberturaDeErvas er en/t CoberturaVegetariana
+ -[subsumption] Hver CoberturaDeCajun er en/t CoberturaDeErvas
+ -[subsumption] Hver Sorvete er en/t CoberturaDeCajun
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeCajun
+ -[subsumption] Hver  er en/t CoberturaDeCajun
+ -[subsumption] Hver CoberturaRosemary er en/t CoberturaDeErvas
+ -[subsumption] Hver Sorvete er en/t CoberturaRosemary
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaRosemary
+ -[subsumption] Hver  er en/t CoberturaRosemary
+ -[subsumption] Hver CoberturaDeVegetais er en/t CoberturaVegetariana
+ -[subsumption] Hver CoberturaDeAlho er en/t CoberturaDeVegetais
+ -[subsumption] Hver Sorvete er en/t CoberturaDeAlho
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeAlho
+ -[subsumption] Hver  er en/t CoberturaDeAlho
+ -[subsumption] Hver CoberturaDePimentao er en/t CoberturaDeVegetais
+ -[subsumption] Hver CoberturaDeJalapeno er en/t CoberturaDePimentao
+ -[subsumption] Hver Sorvete er en/t CoberturaDeJalapeno
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeJalapeno
+ -[subsumption] Hver  er en/t CoberturaDeJalapeno
+ -[subsumption] Hver CoberturaPeperonata er en/t CoberturaDePimentao
+ -[subsumption] Hver Sorvete er en/t CoberturaPeperonata
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaPeperonata
+ -[subsumption] Hver  er en/t CoberturaPeperonata
+ -[subsumption] Hver CoberturaDePimentaoDoce er en/t CoberturaDePimentao
+ -[subsumption] Hver Sorvete er en/t CoberturaDePimentaoDoce
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDePimentaoDoce
+ -[subsumption] Hver  er en/t CoberturaDePimentaoDoce
+ -[subsumption] Hver CoberturaDePimentaoVerde er en/t CoberturaDePimentao
+ -[subsumption] Hver CoberturaDePimentaoVerdePicante er en/t CoberturaDePimentaoVerde
+ -[subsumption] Hver Sorvete er en/t CoberturaDePimentaoVerdePicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDePimentaoVerdePicante
+ -[subsumption] Hver  er en/t CoberturaDePimentaoVerdePicante
+ -[subsumption] Hver CoberturaPetitPois er en/t CoberturaDeVegetais
+ -[subsumption] Hver Sorvete er en/t CoberturaPetitPois
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaPetitPois
+ -[subsumption] Hver  er en/t CoberturaPetitPois
+ -[subsumption] Hver CoberturaDeAspargos er en/t CoberturaDeVegetais
+ -[subsumption] Hver Sorvete er en/t CoberturaDeAspargos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeAspargos
+ -[subsumption] Hver  er en/t CoberturaDeAspargos
+ -[subsumption] Hver CoberturaDeCaper er en/t CoberturaDeVegetais
+ -[subsumption] Hver Sorvete er en/t CoberturaDeCaper
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeCaper
+ -[subsumption] Hver  er en/t CoberturaDeCaper
+ -[subsumption] Hver CoberturaDeEspinafre er en/t CoberturaDeVegetais
+ -[subsumption] Hver Sorvete er en/t CoberturaDeEspinafre
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeEspinafre
+ -[subsumption] Hver  er en/t CoberturaDeEspinafre
+ -[subsumption] Hver CoberturaDeArtichoke er en/t CoberturaDeVegetais
+ -[subsumption] Hver Sorvete er en/t CoberturaDeArtichoke
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeArtichoke
+ -[subsumption] Hver  er en/t CoberturaDeArtichoke
+ -[subsumption] Hver CoberturaDeAzeitona er en/t CoberturaDeVegetais
+ -[subsumption] Hver Sorvete er en/t CoberturaDeAzeitona
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeAzeitona
+ -[subsumption] Hver  er en/t CoberturaDeAzeitona
+ -[subsumption] Hver CoberturaDeCebola er en/t CoberturaDeVegetais
+ -[subsumption] Hver CoberturaDeCebolaVermelha er en/t CoberturaDeCebola
+ -[subsumption] Hver Sorvete er en/t CoberturaDeCebolaVermelha
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeCebolaVermelha
+ -[subsumption] Hver  er en/t CoberturaDeCebolaVermelha
+ -[subsumption] Hver CoberturaDeCogumelo er en/t CoberturaDeVegetais
+ -[subsumption] Hver Sorvete er en/t CoberturaDeCogumelo
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeCogumelo
+ -[subsumption] Hver  er en/t CoberturaDeCogumelo
+ -[subsumption] Hver CoberturaRocket er en/t CoberturaDeVegetais
+ -[subsumption] Hver Sorvete er en/t CoberturaRocket
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaRocket
+ -[subsumption] Hver  er en/t CoberturaRocket
+ -[subsumption] Hver CoberturaDeLeek er en/t CoberturaDeVegetais
+ -[subsumption] Hver Sorvete er en/t CoberturaDeLeek
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeLeek
+ -[subsumption] Hver  er en/t CoberturaDeLeek
+ -[subsumption] Hver CoberturaDeTomate er en/t CoberturaDeVegetais
+ -[subsumption] Hver CoberturaDeTomateRessecadoAoSol er en/t CoberturaDeTomate
+ -[subsumption] Hver Sorvete er en/t CoberturaDeTomateRessecadoAoSol
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeTomateRessecadoAoSol
+ -[subsumption] Hver  er en/t CoberturaDeTomateRessecadoAoSol
+ -[subsumption] Hver CoberturaDeTomateFatiado er en/t CoberturaDeTomate
+ -[subsumption] Hver Sorvete er en/t CoberturaDeTomateFatiado
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeTomateFatiado
+ -[subsumption] Hver  er en/t CoberturaDeTomateFatiado
+ -[subsumption] Hver CoberturaDeCastanha er en/t CoberturaVegetariana
+ -[subsumption] Hver CoberturaPineKernels er en/t CoberturaDeCastanha
+ -[subsumption] Hver Sorvete er en/t CoberturaPineKernels
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaPineKernels
+ -[subsumption] Hver  er en/t CoberturaPineKernels
+ -[subsumption] Hver CoberturaDeCarne er en/t CoberturaDaPizza
+ -[subsumption] Hver CoberturaDeBifePicante er en/t CoberturaDeCarne
+ -[subsumption] Hver Sorvete er en/t CoberturaDeBifePicante
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeBifePicante
+ -[subsumption] Hver  er en/t CoberturaDeBifePicante
+ -[subsumption] Hver CoberturaDePresunto er en/t CoberturaDeCarne
+ -[subsumption] Hver CoberturaDePrezuntoParma er en/t CoberturaDePresunto
+ -[subsumption] Hver Sorvete er en/t CoberturaDePrezuntoParma
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDePrezuntoParma
+ -[subsumption] Hver  er en/t CoberturaDePrezuntoParma
+ -[subsumption] Hver CoberturaDeCalabreza er en/t CoberturaDeCarne
+ -[subsumption] Hver Sorvete er en/t CoberturaDeCalabreza
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeCalabreza
+ -[subsumption] Hver  er en/t CoberturaDeCalabreza
+ -[subsumption] Hver CoberturaDeFrango er en/t CoberturaDeCarne
+ -[subsumption] Hver Sorvete er en/t CoberturaDeFrango
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeFrango
+ -[subsumption] Hver  er en/t CoberturaDeFrango
+ -[subsumption] Hver CoberturaDePeixe er en/t CoberturaDaPizza
+ -[subsumption] Hver CoberturaDeAnchovies er en/t CoberturaDePeixe
+ -[subsumption] Hver Sorvete er en/t CoberturaDeAnchovies
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeAnchovies
+ -[subsumption] Hver  er en/t CoberturaDeAnchovies
+ -[subsumption] Hver CoberturaDeFrutosDoMarMistos er en/t CoberturaDePeixe
+ -[subsumption] Hver Sorvete er en/t CoberturaDeFrutosDoMarMistos
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeFrutosDoMarMistos
+ -[subsumption] Hver  er en/t CoberturaDeFrutosDoMarMistos
+ -[subsumption] Hver CoberturaDeCamarao er en/t CoberturaDePeixe
+ -[subsumption] Hver Sorvete er en/t CoberturaDeCamarao
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t CoberturaDeCamarao
+ -[subsumption] Hver  er en/t CoberturaDeCamarao
+ -[subsumption] Hver BaseDaPizza er en/t 
+ -[subsumption] Hver BaseEspessa er en/t BaseDaPizza
+ -[subsumption] Hver Sorvete er en/t BaseEspessa
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t BaseEspessa
+ -[subsumption] Hver  er en/t BaseEspessa
+ -[subsumption] Hver BaseFinaEQuebradica er en/t BaseDaPizza
+ -[subsumption] Hver Sorvete er en/t BaseFinaEQuebradica
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t BaseFinaEQuebradica
+ -[subsumption] Hver  er en/t BaseFinaEQuebradica
+ -[subsumption] Hver Pais er en/t 
+ -[subsumption] Hver Sorvete er en/t Pais
+ -[subsumption] Hver CoberturaDeQueijoComVegetais er en/t Pais
+ -[subsumption] Hver  er en/t Pais
