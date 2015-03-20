@@ -53,6 +53,8 @@ public final class SimpleHierarchyExample {
     private int counter = 0;
     private String verbalization;
 
+    public static boolean DEBUG = false;
+
     private SimpleHierarchyExample(@Nonnull OWLOntology inputOntology) {
         this.ontology = inputOntology;
         out = System.out;
@@ -114,7 +116,7 @@ public final class SimpleHierarchyExample {
                     if(testLabelFor(parent)){
                         verbalization += "\n" + con.createVerbalization(labelFor(child), labelFor(parent));
                         System.out.println(con.createVerbalization(labelFor(child), labelFor(parent)));
-//                        System.out.println(child.containsConjunct());
+//                        System.out.println(child.containsConjunct()); // Did not finish this...
                     }
                     verbalizeSubClasses(reasoner, child);
                 }
@@ -154,7 +156,7 @@ public final class SimpleHierarchyExample {
                 }
             }
 
-
+            // Still havent figured out how disjoint classes work..
 //            System.out.println(Arrays.toString(a));
 
 //            System.out.println(nodeSet.getNodes().size());
@@ -179,7 +181,7 @@ public final class SimpleHierarchyExample {
      * V.0.1
      * Select what operation to do by passing arguments.
      * This sets the constraint (cant figure out a better name) and initiates the correct method
-    * */
+     * */
 
     public void startVerbalizer(@Nonnull OWLClass clazz) throws IllegalAccessException, InstantiationException, IOException, ClassNotFoundException, SAXException, ParserConfigurationException, OWLException {
         OWLReasoner reasoner = getReasoner(ontology);
@@ -192,7 +194,7 @@ public final class SimpleHierarchyExample {
 
         writeToFile(verbalization);
 
-        System.out.println("File written to disk. Disposing...");
+        print("File written to disk. Disposing...");
 
         /* Now print out any unsatisfiable classes */
         for (OWLClass cl : ontology.getClassesInSignature()) {
@@ -206,7 +208,7 @@ public final class SimpleHierarchyExample {
 
     public void setConstraint(String type){
         con = parser.getSchema(type);
-        System.out.println(con.toString());
+        print(con.toString());
     }
 
 
@@ -251,12 +253,14 @@ public final class SimpleHierarchyExample {
         *
         * */
 
-        String xmlSchemaPath = PATH + "owlnl.xml";
+        String xmlSchema = PATH + "siste.xml";
         String ontologyURI = PATH + "familie.owl";
 
-        if (!args[0].equals(null)) {
+        if (args.length > 0) {
             ontologyURI = args[0];
-            xmlSchemaPath = args[1];
+            if(args.length > 1){
+                xmlSchema = args[1];
+            }
         }
 
         OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
@@ -272,22 +276,22 @@ public final class SimpleHierarchyExample {
 //        render.render(documentIRI);
 
         parser = new XMLparserTakeTwo();
-        parser.loadDocument(xmlSchemaPath);
+        parser.loadDocument(xmlSchema);
 
 
         OWLOntology ontology = manager.loadOntologyFromOntologyDocument(documentIRI);
 
         // Report information about the ontology
-        System.out.println("Ontology Loaded...");
-        System.out.println("Document IRI: " + documentIRI);
-        System.out.println("Ontology : " + ontology.getOntologyID());
-        System.out.println("Format      : " + manager.getOntologyFormat(ontology));
+        print("Ontology Loaded...");
+        print("Document IRI: " + documentIRI);
+        print("Ontology : " + ontology.getOntologyID());
+        print("Format      : " + manager.getOntologyFormat(ontology));
 
         // Create a new SimpleHierarchy object with the given reasoner.
         SimpleHierarchyExample simpleHierarchy = new SimpleHierarchyExample(ontology);
         // Get Thing
         OWLClass clazz = manager.getOWLDataFactory().getOWLThing();
-        System.out.println("Class       : " + clazz);
+        print("Class       : " + clazz);
 
         // Print the hierarchy below thing
         simpleHierarchy.startVerbalizer(clazz);
@@ -295,6 +299,12 @@ public final class SimpleHierarchyExample {
 //        simpleHierarchy.getProperty(clazz);
     }
 
+
+    public static void print(String s){
+        if(DEBUG){
+            System.out.println("DEBUG: "+s);
+        }
+    }
 
 
     public static OWLReasoner getReasoner(OWLOntology ontology) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
