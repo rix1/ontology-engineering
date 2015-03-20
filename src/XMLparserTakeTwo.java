@@ -75,10 +75,9 @@ public class XMLparserTakeTwo {
     public void loadDocument(String PATH) throws ParserConfigurationException, IOException, SAXException {
         dBuilder = dbFactory.newDocumentBuilder();
         doc = dBuilder.parse(new File(PATH));
-
         doc.getDocumentElement().normalize();
 
-        System.out.println("Document loaded... Root element: " + doc.getDocumentElement().getNodeName());
+        SimpleHierarchyExample.print("Document loaded... Root element: " + doc.getDocumentElement().getNodeName());
 
     }
 
