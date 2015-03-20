@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <!-- saved from url=(0040)http://getbootstrap.com/examples/signin/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-<title>OWL Verbalizor</title>
-
-
-<!-- Bootstrap core CSS -->
-<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>OWL Verbalizor</title>
 
 
-<!-- Custom styles for this template -->
-<link href="main.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+
+    <!-- Custom styles for this template -->
+    <link href="main.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -28,45 +28,72 @@
 
 <body>
 
-    <div class="container">
+<div class="container text-center">
+    <h1 id="velkommen">Velkommen!</h1>
+    <p style="margin-top:30px" class="lead">Dette er en norsk OWL verbaliserer. Merk, produktet er <br> i tidlig alfa og støtter for øyeblikket kun subjunksjoner.</p>
 
-        <form class="form-signin" action="">
-            <h2 class="form-signin-heading">Enter OWL info</h2>
+    <form class="form-signin" action="">
+        <h2 class="form-signin-heading"></h2>
+        <div class="checkbox">
+            <label> Litt avghenig av størrelsen på ontologien din, kan dette ta litt tid! Lag en kaffekopp!</label>
+        </div>
+        <label for="owl" class="sr-only">OWL Ontology</label>
+        <input type="text" id="owl" class="form-control" placeholder="Lim inn en OWL-Ontologi URL" required="" autofocus="" autocomplete="off">
 
-            <label for="inputOwlUrl" class="sr-only">OWL Ontology</label>
-            <input type="text" id="owl" class="form-control" placeholder="URI to OWL ontology" required="" autofocus="" autocomplete="off">
+        <label for="xml" class="sr-only">XML schema</label>
+        <textarea class="form-control" id="xml" rows="5" placeholder="Lim inn et gyldig xml-skjema her"></textarea>
+        <button class="btn btn-lg btn-primary btn-block" style="margin-top:20px">Verbalize</button>
 
-            <label for="inputXML" class="sr-only">XML schema</label>
-            <input type="text" id="xml" class="form-control" placeholder="XML schema thingy" required="" autocomplete="off">
+        <div style="margin-top:20px" id="errorDiv" class="error alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+        </div>
 
-            <button class="btn btn-lg btn-primary btn-block">Verbalize</button>
 
-        </form>
-        <div id="output" class="well"></div>
-    
-    </div> <!-- /container -->
-    
+
+    </form>
+    <div id="output" class="well">
+
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+
+    </div>
+
+</div> <!-- /container -->
+
 
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 
 <script>
-  var socket = io();
-  $('form').submit(function(){
-    socket.emit('input fields', {
-      owl: $('#owl').val(), 
-      xml: $('#xml').val()
+    var socket = io();
+    $('form').submit(function(){
+        $(".spinner").show();
+        socket.emit('input fields', {
+            owl: $('#owl').val(),
+            xml: $('#xml').val()
+        });
+        $('#m').val(''); // Reset field
+        $('#k').val('');
+        return false;
     });
-    $('#m').val(''); // Reset field
-    $('#k').val('');
-    return false;
-  });
-  socket.on('data response', function(msg){
-    console.log("DATA RESPONSE! " + msg);
-    //$('#output').append($('<p>').text(JSON.stringify(msg)));
-    $('#output').append("Heisann!" + JSON.stringify(msg));
-  });
+    socket.on('data response', function(msg){
+        $(".spinner").hide();
+        console.log(msg);
+        $('#output').append(msg);
+    });
+    socket.on('error msg', function(msg){
+        $('#errorDiv').append(msg);
+        $('#errorDiv').slideDown(400);
+
+    })
+
 </script>
 
 </body>

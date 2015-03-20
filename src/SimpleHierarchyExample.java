@@ -115,7 +115,7 @@ public final class SimpleHierarchyExample {
                 if (!child.equals(parent)) {
                     if(testLabelFor(parent)){
                         verbalization += "\n" + con.createVerbalization(labelFor(child), labelFor(parent));
-                        System.out.println(con.createVerbalization(labelFor(child), labelFor(parent)));
+                        System.out.println(con.createVerbalization(labelFor(child), labelFor(parent)) + "<br>");
 //                        System.out.println(child.containsConjunct()); // Did not finish this...
                     }
                     verbalizeSubClasses(reasoner, child);
@@ -192,7 +192,7 @@ public final class SimpleHierarchyExample {
 //        verbalizeDisjointClasses(reasoner, clazz);
 
 
-        writeToFile(verbalization);
+//        writeToFile(verbalization);
 
         print("File written to disk. Disposing...");
 

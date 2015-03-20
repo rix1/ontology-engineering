@@ -43,17 +43,21 @@ fs.writeFile(process.env.HOME+ '/Development/ontology-engineering/temp/siste.xml
 });
 }
 
+
 var exec = require('child_process').exec, child;
 
 function runVerbalizor(owlURL, schemaXML){
   var returnData;
-	child = exec('/usr/bin/java -jar ' + process.cwd() + '/test.jar ' +     owlURL + " " + schemaXML, 
+  
+  // Path to latest build  
+	child = exec('/usr/bin/java -jar ' + process.env.HOME+ '/Development/ontology-engineering/out/artifacts/OwlVerbalizor/OWLAPI-4.jar ' +  owlURL, 
 		function(error, stdout, stderr){
       io.emit('data response', stdout);
 			console.log('stdpout: ' + stdout);
 			console.log('stderr: ' + stderr);
 			if(error !== null){
 				console.log('exec error: ' + error);
+        io.emit('error msg', 'Feil: Noe gikk galt! Dobbeltsjekk url til ontologien samt xml skjemaet ditt.')
 			}
 		});
 
