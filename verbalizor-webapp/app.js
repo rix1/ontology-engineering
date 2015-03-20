@@ -57,7 +57,7 @@ function runVerbalizor(owlURL, schemaXML){
 			console.log('stderr: ' + stderr);
 			if(error !== null){
 				console.log('exec error: ' + error);
-        io.emit('error msg', 'Feil: Noe gikk galt! Dobbeltsjekk url til ontologien samt xml skjemaet ditt.')
+        io.emit('error msg', 'Feil: Noe gikk galt! Dobbeltsjekk URL til ontologien samt XML-skjemaet ditt.')
 			}
 		});
 
