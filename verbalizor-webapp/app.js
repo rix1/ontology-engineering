@@ -5,7 +5,7 @@ var io = require('socket.io').listen(server);
 
 var exec = require('child_process').exec, child;
 
-app.set('port', 3000);
+app.set('port', 8880);
 
 server.listen(app.get('port'), function(){
    console.log("Express server listening on port " + app.get('port'));
