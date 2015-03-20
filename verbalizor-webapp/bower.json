@@ -1,0 +1,22 @@
+{
+  "name": "verbalizor-webapp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rix1/ontology-engineering",
+  "authors": [
+    "rix1 <rikardeide@gmail.com>"
+  ],
+  "description": "webapp for verbalizing owl ontologies",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}

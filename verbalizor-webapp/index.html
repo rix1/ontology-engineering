@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://getbootstrap.com/examples/signin/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+<title>OWL Verbalizor</title>
+
+
+<!-- Bootstrap core CSS -->
+<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- Custom styles for this template -->
+<link href="main.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+
+        <form class="form-signin" action="">
+            <h2 class="form-signin-heading">Enter OWL info</h2>
+
+            <label for="inputOwlUrl" class="sr-only">OWL Ontology</label>
+            <input type="text" id="owl" class="form-control" placeholder="URI to OWL ontology" required="" autofocus="" autocomplete="off">
+
+            <label for="inputXML" class="sr-only">XML schema</label>
+            <input type="text" id="xml" class="form-control" placeholder="XML schema thingy" required="" autocomplete="off">
+
+            <button class="btn btn-lg btn-primary btn-block">Verbalize</button>
+
+        </form>
+        <div id="output" class="well"></div>
+    
+    </div> <!-- /container -->
+    
+
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  var socket = io();
+  $('form').submit(function(){
+    socket.emit('input fields', {
+      owl: $('#owl').val(), 
+      xml: $('#xml').val()
+    });
+    $('#m').val(''); // Reset field
+    $('#k').val('');
+    return false;
+  });
+  socket.on('data response', function(msg){
+    console.log("DATA RESPONSE! " + msg);
+    //$('#output').append($('<p>').text(JSON.stringify(msg)));
+    $('#output').append("Heisann!" + JSON.stringify(msg));
+  });
+</script>
+
+</body>
+</html>
